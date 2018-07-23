@@ -16,7 +16,7 @@
 		<!-- Material Design Bootstrap -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/style.min.css">
-		<script type="text/javascript" src="//api.laut.fm/js_tools/lautfm_js_tools.0.9.1.js" ></script>
+
 </head>
 
 <body>
@@ -32,10 +32,8 @@
 	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	        <!-- Left -->
 	        <ul class="navbar-nav mr-auto">
-	          <li class="nav-item active">
-	            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home
-	              <span class="sr-only">(current)</span>
-	            </a>
+	          <li class="nav-item">
+	            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
 	          </li>
 						<li class="nav-item">
 	            <a class="nav-link" href="showplan.html"><i class="far fa-calendar-alt"></i> Showplan</a>
@@ -77,35 +75,7 @@
 
 	        <img src="assets/images/logo.png" alt="">
 
-					<h3>Startseite</h3>
-
-					<div id="song"></div>
-					 <script type="text/html" id="song_template" charset="utf-8">
-						 <div class="row">
-							 <div class="col-md-2">
-								 Du h&ouml;rst:
-							 </div>
-							 <div class="col-md-10">
-								 <div class="marquee">
-									 <p><%= this.artist.name %> -- <%= this.title %></p>
-								 </div>
-							 </div>
-						 </div>
-					 </script>
-					<script type="text/javascript" charset="utf-8"> laut.fm.station('qg-club')
-					.info({container:'station', template:'station_template'})
-					.current_song({container:'song', template:'song_template'}, true); </script>
-					<div class="row">
-						<div class="col-md-4">
-							<a href="https://laut.fm/qg-club?autoplay=1" target="_blank"> <button class="btn button-rgba1 btn-block">Laut.FM Player</button> </a>
-						</div>
-						<div class="col-md-4">
-							<a href="http://stream.laut.fm/qg-club.m3u"> <button class="btn button-rgba1 btn-block">M3U Player</button> </a>
-						</div>
-						<div class="col-md-4">
-							<a href="http://lautfm-qg-club.radio.de/"> <button class="btn button-rgba1 btn-block">Radio.de Player</button> </a>
-						</div>
-					</div>
+					<h3>Kontaktformular</h3>
 	      </div>
 	      <!-- Content -->
 
@@ -115,7 +85,64 @@
 	  </div>
 	  <!-- Full Page Intro -->
 		<div class="content">
+			<form id="contact-form" method="post" action="contact.php" role="form">
 
+        <div class="messages"></div>
+
+        <div class="controls">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_name">Firstname *</label>
+                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_lastname">Lastname *</label>
+                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">Email *</label>
+                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_phone">Phone</label>
+                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="form_message">Message *</label>
+                        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-success btn-send" value="Send message">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a href="https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form" target="_blank">Bootstrapious</a>.</p>
+                </div>
+            </div>
+        </div>
+
+    </form>
 		</div>
 	  <!--Footer-->
 	  <footer class="page-footer text-center font-small wow fadeIn">
@@ -155,6 +182,8 @@
   <!--/.Footer-->
 
   <!-- SCRIPTS -->
+    <script src="validator.js"></script>
+	  <script src="contact.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- Bootstrap tooltips -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
